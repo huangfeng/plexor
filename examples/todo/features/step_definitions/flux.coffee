@@ -1,12 +1,11 @@
-
 { exp, identifier } = require '../support/tokens'
+{ findStore } = require '../support/flux'
 
 module.exports = ->
 
   @Then exp("(#{identifier})s should be empty"), (store) ->
-    p store
-#    store = findStore store
-#    contains @, store.all, items
+    store = findStore store
+    store.getAll().should.be.empty()
 
 
 

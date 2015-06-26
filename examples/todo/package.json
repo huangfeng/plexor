@@ -1,38 +1,17 @@
 {
   "name": "cucumber-flux-todo-sample",
-  "version": "0.0.1",
-  "description": "cucumber dsl for react flux apps",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/limadelic/cucumber-flux.git"
+  "scripts": {
+    "test": "cucumber.js"
   },
-  "keywords": [
-    "cucumber",
-    "cuke",
-    "reactjs",
-    "react",
-    "flux"
-  ],
-  "author": {
-    "name": "limadelic",
-    "email": "limadelic@gmail.com"
+  "dependencies": {
+    "flux": "^2.0.3",
+    "keymirror": "^0.1.1",
+    "object-assign": "^3.0.0"
   },
-  "contributors": [
-    {
-      "name": "Isel Fernandez",
-      "email": "isel_77@hotmail.com"
-    },
-    {
-      "name": "Mike Suarez",
-      "email": "mikemps@gmail.com"
-    }
-  ],
-  "licenses": [
-    "MIT"
-  ],
-  "dependencies": {},
   "devDependencies": {
     "cucumber": "^0.5.1",
-    "lodash": "^3.9.3"
+    "flux": "^2.0.3",
+    "lodash": "^3.9.3",
+    "should": "^7.0.1"
   }
 }
