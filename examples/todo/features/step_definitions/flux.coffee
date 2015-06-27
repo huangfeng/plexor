@@ -3,6 +3,9 @@ t = require '../support/tokens'
 
 module.exports = ->
 
+  should = (matcher, arg) ->
+    "store.getAll().should.#{matcher.split(' ').join '.'}(#{arg})"
+
   @Given t.x("(#{t.var}) (#{t.arg})"), (name, value) ->
     name = name[1..]
     value = value[1...-1]
@@ -16,6 +19,9 @@ module.exports = ->
 
   @Then t.x(t.should), (matcher)->
     { store } = findStore @store
-    eval "store.getAll().should.#{matcher.split(' ').join '.'}()"
+    eval should matcher
 
   @Then t.x("#{t.should}:"), (matcher, value) ->
+    { store } = findStore @store
+    value = _.zipObject value.raw()
+    eval should matcher, 'value'

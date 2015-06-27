@@ -12,6 +12,6 @@ Feature: TODO
   Scenario: Something todo
 
     When create "something"
-    Then should include:
+    Then should contain:
       | text     | something |
-      | complete | false     |
+#      | complete | false     |
