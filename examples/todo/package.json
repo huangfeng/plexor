@@ -1,7 +1,7 @@
 {
   "name": "cucumber-flux-todo-sample",
   "scripts": {
-    "test": "cucumber.js"
+    "test": "cucumber.js -coffee"
   },
   "dependencies": {
     "flux": "^2.0.3",
