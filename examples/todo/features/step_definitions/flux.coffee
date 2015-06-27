@@ -8,12 +8,11 @@ module.exports = ->
     value = value[1...-1]
     @[name] = value
 
-  @When t.x("([^@]*) (#{t.arg})"), (action, arg) ->
-    { store, actions } = findStore @store
-
-#    once @store, @on, -> done()
-#    arg = arg[1...-1]
-#    actions[action].apply @, arg
+  @When t.x("([^@]*) (#{t.arg})"), (action, arg, done) ->
+    { @store, @actions } = findStore @store
+    once @store, @on, -> done()
+    arg = arg[1...-1]
+    @actions[action] arg
 
   @Then t.x(t.should), (matcher)->
 #    store = findStore store
