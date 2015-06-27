@@ -2,8 +2,8 @@ Feature: TODO
 
   Background:
 
-    Given @store Todo
-    And @once change
+    Given @store "Todo"
+    And @on "change"
 
   Scenario: There's nothing todo
 

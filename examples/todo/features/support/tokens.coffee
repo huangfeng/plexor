@@ -1,9 +1,10 @@
 t =
-  exp: (expr) -> RegExp "^#{expr}$"
-  literal: '"[^"]*"'
-  identifier: '\\w+'
+  x: (expr) -> RegExp "^#{expr}$"
+  lit: '"[^"]*"'
+  id: '\\w+'
+  should: 'should ([^:]+)'
 
-t.variable = "@#{t.identifier}"
-t.arg = "#{t.literal}|#{t.variable}"
+t.var = "@#{t.id}"
+t.arg = "#{t.lit}|#{t.var}"
 
 module.exports = t
