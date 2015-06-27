@@ -2,7 +2,10 @@ require './globals'
 
 module.exports =
 
-  findStore: (name) -> require relative "stores/#{name}Store"
+  findStore: (name) ->
+    store: require relative "stores/#{name}Store"
+    actions: require relative "actions/#{name}Actions"
+
 
   once: (store, event, done) ->
     cb = ->
