@@ -9,13 +9,13 @@ module.exports = ->
     @[name] = value
 
   @When t.x("([^@]*) (#{t.arg})"), (action, arg, done) ->
-    { @store, @actions } = findStore @store
-    once @store, @on, -> done()
+    { store, actions } = findStore @store
+    once store, @on, -> done()
     arg = arg[1...-1]
-    @actions[action] arg
+    actions[action] arg
 
   @Then t.x(t.should), (matcher)->
-#    store = findStore store
-#    store.getAll().should.be.empty()
+    { store } = findStore @store
+    eval "store.getAll().should.#{matcher.split(' ').join '.'}()"
 
   @Then t.x("#{t.should}:"), (matcher, value) ->
