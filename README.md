@@ -1,2 +1,2 @@
-# cucumber-flux
-cucumber dsl for react flux apps
+# fluke
+cuke dsl for react flux apps
