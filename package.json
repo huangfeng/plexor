@@ -1,7 +1,7 @@
 {
-  "name": "cucumber-flux",
+  "name": "flukejs",
   "version": "0.0.1",
-  "description": "cucumber dsl for react flux apps",
+  "description": "cuke dsl for flux apps",
   "repository": {
     "type": "git",
     "url": "https://github.com/limadelic/cucumber-flux.git"
@@ -30,10 +30,12 @@
   "licenses": [
     "MIT"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "lodash": "^3.9.3",
+    "should": "^7.0.1"
+  },
   "devDependencies": {
     "cucumber": "^0.5.1",
-    "mocha": "latest",
-    "should": "latest"
+    "mocha": "^2.2.5"
   }
 }

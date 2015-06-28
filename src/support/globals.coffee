@@ -7,4 +7,4 @@ global.m = (x) ->
   p _.sortBy (name for name of x), (x) -> x
 
 
-global.relative = (file) -> "#{__dirname}/../../src/#{file}"
+global.relative = (file) -> "#{__dirname}/../../examples/todo/src/#{file}"
