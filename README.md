@@ -1,2 +1,2 @@
 # fluke
-cuke dsl for react flux apps
+[cuke](http://cucumber.io) dsl for [flux](http://facebook.github.io/flux) apps
