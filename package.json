@@ -1,10 +1,10 @@
 {
-  "name": "flukejs",
+  "name": "plexor",
   "version": "0.0.1",
-  "description": "cuke dsl for flux apps",
+  "description": "testing react apps",
   "repository": {
     "type": "git",
-    "url": "https://github.com/limadelic/cucumber-flux.git"
+    "url": "https://github.com/limadelic/plexor.git"
   },
   "keywords": [
     "cucumber",
