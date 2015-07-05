@@ -1,7 +1,8 @@
 {
   "name": "plexor",
-  "version": "0.0.1",
-  "description": "testing react apps",
+  "version": "0.0.3",
+  "description": "react test",
+  "main": "./lib/plexor.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/limadelic/plexor.git"
@@ -27,15 +28,18 @@
       "email": "mikemps@gmail.com"
     }
   ],
-  "licenses": [
-    "MIT"
-  ],
+  "license": "MIT",
   "dependencies": {
     "lodash": "^3.9.3",
     "should": "^7.0.1"
   },
   "devDependencies": {
     "cucumber": "^0.5.1",
+    "grunt": "^0.4.5",
+    "grunt-contrib-coffee": "^0.13.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-shell": "^1.1.2",
+    "load-grunt-tasks": "^3.2.0",
     "mocha": "^2.2.5"
   }
 }
