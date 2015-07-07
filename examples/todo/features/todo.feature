@@ -14,4 +14,4 @@ Feature: TODO
     When create "something"
     Then should contain:
       | text     | something |
-#      | complete | false     |
+      | complete | no        |

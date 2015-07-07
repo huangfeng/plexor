@@ -1,6 +1,6 @@
 {
   "name": "plexor",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "react test",
   "main": "./lib/plexor.js",
   "repository": {
@@ -40,6 +40,8 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-shell": "^1.1.2",
     "load-grunt-tasks": "^3.2.0",
-    "mocha": "^2.2.5"
+    "mocha": "^2.2.5",
+    "mockery": "^1.4.0",
+    "sinon": "^1.15.4"
   }
 }

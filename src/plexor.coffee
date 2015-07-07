@@ -1,7 +1,7 @@
-
-
 require './support/globals'
 require './support/matchers'
+
+cast = require './support/cast'
 t = require './support/tokens'
 { findStore, once } = require './support/flux'
 
@@ -23,10 +23,9 @@ module.exports = ->
 
   @Then t.x(t.should), (matcher)->
     { store } = findStore @store
-    store.getAll().should.be.empty()
-#    eval should matcher
+    eval should matcher
 
   @Then t.x("#{t.should}:"), (matcher, value) ->
     { store } = findStore @store
-    value = _.zipObject value.raw()
+    value = _.zipObject _.map value.raw(), (x) -> [x[0], cast x[1]]
     eval should matcher, 'value'
