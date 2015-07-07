@@ -15,3 +15,10 @@ Feature: TODO
     Then should contain:
       | text     | something |
       | complete | no        |
+
+  Scenario: Get it done
+
+    Given @something that is
+      | complete | false |
+    When toggle complete @something
+    Then @something.complete should be true
