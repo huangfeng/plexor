@@ -18,7 +18,7 @@ Feature: TODO
 
   Scenario: Get it done
 
-    Given @something that is
+    Given @something that is:
       | complete | false |
-    When toggle complete @something
-    Then @something.complete should be true
+#    When toggle complete @something
+#    Then @something.complete should be true
