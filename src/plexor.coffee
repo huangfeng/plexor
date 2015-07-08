@@ -13,6 +13,12 @@ module.exports = ->
   objectTable = (table) ->
     _.zipObject _.map table.raw(), (x) -> [x[0], cast x[1]]
 
+  argValue = (world, arg) =>
+    if arg[0] is '@'
+    then world[arg[1..]]
+    else arg[1...-1]
+
+
   @Given t.x("(#{t.var}) (#{t.arg})"), (name, value) ->
     name = name[1..]
     value = value[1...-1]
@@ -27,7 +33,7 @@ module.exports = ->
   @When t.x("([^@]*) (#{t.arg})"), (action, arg, done) ->
     { store, actions } = findStore @store
     once store, @on, -> done()
-    p arg = arg[1...-1]
+    arg = argValue @, arg
     actions[cammelCase(action)] arg
 
   @Then t.x(t.should), (matcher)->
