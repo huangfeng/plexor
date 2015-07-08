@@ -1,7 +1,7 @@
 require './support/globals'
 { any } = require './support/matchers'
 
-cast = require './support/cast'
+{ cast, cammelCase } = require './support/cast'
 t = require './support/tokens'
 { findStore, once } = require './support/flux'
 
@@ -27,8 +27,8 @@ module.exports = ->
   @When t.x("([^@]*) (#{t.arg})"), (action, arg, done) ->
     { store, actions } = findStore @store
     once store, @on, -> done()
-    arg = arg[1...-1]
-    actions[action] arg
+    p arg = arg[1...-1]
+    actions[cammelCase(action)] arg
 
   @Then t.x(t.should), (matcher)->
     { store } = findStore @store

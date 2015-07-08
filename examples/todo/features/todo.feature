@@ -20,5 +20,5 @@ Feature: TODO
 
     Given @something that is:
       | complete | false |
-#    When toggle complete @something
+    When toggle complete @something
 #    Then @something.complete should be true

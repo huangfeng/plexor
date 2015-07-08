@@ -14,6 +14,13 @@ types =
 
   default: (x) -> -> x
 
-module.exports = (value) ->
+module.exports =
 
-  _.find(_.map types, (t) -> t value)()
+  cast: (value) ->
+    _.find(_.map types, (t) -> t value)()
+
+  cammelCase: (spaced) ->
+    tokens = spaced.split ' '
+    rest = tokens[1..].map (x) -> "#{x[0].toUpperCase()}#{x[1..]}"
+    "#{tokens[0]}#{rest}"
+

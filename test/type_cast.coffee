@@ -1,6 +1,6 @@
 describe 'Casting', ->
 
-  cast = require relative 'support/cast'
+  { cast, cammelCase } = require relative 'support/cast'
 
   it 'defaults to same value', ->
     cast('shadow').should.eql 'shadow'
@@ -14,3 +14,6 @@ describe 'Casting', ->
     cast('false').should.be.false()
     cast('no').should.be.false()
 
+  it 'cammel cases', ->
+    cammelCase('thematrix').should.eql 'thematrix'
+    cammelCase('the matrix').should.eql 'theMatrix'
