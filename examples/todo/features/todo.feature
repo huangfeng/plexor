@@ -23,3 +23,20 @@ Feature: TODO
     When toggle complete @something
     Then should contain:
       | complete | yes |
+
+  Scenario: Get it undone
+
+    Given @something that is:
+      | complete | true |
+    When toggle complete @something
+    Then should contain:
+      | complete | no |
+
+  Scenario: More todo
+
+    When create "something else"
+    Then should contain:
+      | text           | complete |
+      | something      | no       |
+      | something else | no       |
+
