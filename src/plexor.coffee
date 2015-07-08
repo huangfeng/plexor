@@ -7,8 +7,10 @@ t = require './support/tokens'
 
 module.exports = ->
 
-  should = (matcher, arg) ->
-    "store.getAll().should.#{matcher.split(' ').join '.'}(#{arg})"
+  should = ({actual, matcher, expected}) ->
+    actual ||= 'store.getAll()'
+    expected ||= ''
+    "#{actual}.should.#{matcher.split(' ').join '.'}(#{expected})"
 
   objectTable = (table) ->
     _.zipObject _.map table.raw(), (x) -> [x[0], cast x[1]]
@@ -30,7 +32,7 @@ module.exports = ->
     value = objectTable value
     @[name] = any store.getAll(), value
 
-  @When t.x("([^@]*) (#{t.arg})"), (action, arg, done) ->
+  @When t.x("([^@]+) (#{t.arg})"), (action, arg, done) ->
     { store, actions } = findStore @store
     once store, @on, -> done()
     arg = argValue @, arg
@@ -38,9 +40,9 @@ module.exports = ->
 
   @Then t.x(t.should), (matcher)->
     { store } = findStore @store
-    eval should matcher
+    eval should { matcher }
 
   @Then t.x("#{t.should}:"), (matcher, value) ->
     { store } = findStore @store
     value = objectTable value
-    eval should matcher, 'value'
+    eval should { matcher, expected: 'value' }
