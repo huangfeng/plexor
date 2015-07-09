@@ -1,23 +1,19 @@
 _ = require 'lodash'
 
-types =
+number = (x) ->
+  unless isNaN x
+    -> Number x
 
-  number: (x) ->
-    unless isNaN x
-      -> Number x
-
-  bool: (x) ->
-    bools = /^true|yes|false|no$/i
-    positive = /^true|yes$/i
-    if x.match(bools)?
-      -> x.match(positive)?
-
-  default: (x) -> -> x
+bool = (x) ->
+  bools = /^true|yes|false|no$/i
+  positive = /^true|yes$/i
+  if x.match(bools)?
+    -> x.match(positive)?
 
 module.exports =
 
-  cast: (value) ->
-    _.find(_.map types, (t) -> t value)()
+  cast: (x) ->
+    (number(x) or bool(x) or -> x)()
 
   cammelCase: (spaced) ->
     tokens = spaced.split ' '
