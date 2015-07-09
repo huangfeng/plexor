@@ -1,6 +1,6 @@
 {
   "name": "plexor",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "react test",
   "main": "./lib/plexor.js",
   "repository": {
