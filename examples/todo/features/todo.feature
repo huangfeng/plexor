@@ -35,8 +35,8 @@ Feature: TODO
   Scenario: More todo
 
     When create "something else"
-    Then should contain:
-      | text           | complete |
-      | something      | no       |
-      | something else | no       |
+#    Then should contain:
+#      | [text]         | [complete] |
+#      | something      | no         |
+#      | something else | no         |
 

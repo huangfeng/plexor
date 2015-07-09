@@ -8,8 +8,8 @@ t = require './support/tokens'
 module.exports = ->
 
   should = ({actual, matcher, expected}) ->
-    actual ||= 'store.getAll()'
-    expected ||= ''
+    actual ?= 'store.getAll()'
+    expected ?= ''
     "#{actual}.should.#{matcher.split(' ').join '.'}(#{expected})"
 
   objectTable = (table) ->
