@@ -40,3 +40,10 @@ Feature: TODO
       | something      | no         |
       | something else | no         |
 
+  Scenario: I changed my mind
+
+    Given @id of:
+      | text | something |
+    When update text with @id to "something different"
+    Then should contain:
+      | text | something different |
