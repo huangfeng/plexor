@@ -26,7 +26,9 @@ module.exports = ->
     { store } = findStore @store
     name = name[1..]
     value = table value
-    @[name] = any store.getAll(), value
+    found = any store.getAll(), value
+    @[name] = found?[name]? and
+      found[name] or found
 
   @When t.x("([^@]+) (#{t.arg})"), (action, arg, done) ->
     { store, actions } = findStore @store
