@@ -18,5 +18,5 @@ module.exports =
   cammelCase: (spaced) ->
     tokens = spaced.trim().split ' '
     rest = tokens[1..].map (x) -> "#{x[0].toUpperCase()}#{x[1..]}"
-    "#{tokens[0]}#{rest}"
+    "#{tokens[0]}#{rest.join('')}"
 

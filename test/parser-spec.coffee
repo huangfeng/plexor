@@ -4,6 +4,11 @@ describe 'Parser', ->
 
   describe 'Args', ->
 
+    it 'empty if unparsable', ->
+
+      t.args '@'
+      .should.eql []
+
     it 'variable', ->
 
       t.args '@var'

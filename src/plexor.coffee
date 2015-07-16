@@ -12,11 +12,6 @@ module.exports = ->
     expected ?= ''
     "#{actual}.should.#{matcher.split(' ').join '.'}(#{expected})"
 
-  argValue = (world, arg) ->
-    if arg[0] is '@'
-    then world[arg[1..]]
-    else arg[1...-1]
-
   @Given t.x("(#{t.var}) (#{t.arg})"), (name, value) ->
     name = name[1..]
     value = value[1...-1]
@@ -30,15 +25,25 @@ module.exports = ->
     @[name] = found?[name]? and
       found[name] or found
 
-  @When t.x("(#{t.text})(.+)"), (action, args, done)  ->
+  onAction = (world, action, args) ->
 
+    argValue = (arg) ->
+      if arg[0] is '@'
+      then world[arg[1..]]
+      else arg[1...-1]
+
+    action = action + args if args.length is 1
+    action = cammelCase action
+
+    args = t.args args
+    args = _.map args, argValue
+
+    [action, args]
+
+  @When t.x("(#{t.text})(.+)"), (action, args, done)  ->
+    [action, args] = onAction @, action, args
     { store, actions } = findStore @store
     once store, @on, -> done()
-
-    action = cammelCase action
-    args = t.args args
-    args = _.map args, (x) => argValue @, x
-
     actions[action].apply @, args
 
   @Then t.x(t.should), (matcher)->
