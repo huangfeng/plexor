@@ -47,3 +47,11 @@ Feature: TODO
     When update text @id to "something different"
     Then should contain:
       | text | something different |
+
+  Scenario: It's a wrap
+
+    When toggle complete all
+    Then should contain:
+      | [text]              | [complete] |
+      | something different | yes        |
+      | something else      | yes        |
