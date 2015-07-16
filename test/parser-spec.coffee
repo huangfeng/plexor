@@ -23,3 +23,8 @@ describe 'Parser', ->
 
       t.args '"lit1", "lit2" or mayb "lit3"'
       .should.eql ['"lit1"','"lit2"','"lit3"']
+
+    it 'mixes it literals', ->
+
+      t.args '@arg, "lit" and @arg'
+      .should.eql ['@arg','"lit"','@arg']

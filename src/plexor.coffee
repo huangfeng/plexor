@@ -12,7 +12,7 @@ module.exports = ->
     expected ?= ''
     "#{actual}.should.#{matcher.split(' ').join '.'}(#{expected})"
 
-  argValue = (world, arg) =>
+  argValue = (world, arg) ->
     if arg[0] is '@'
     then world[arg[1..]]
     else arg[1...-1]
@@ -30,11 +30,16 @@ module.exports = ->
     @[name] = found?[name]? and
       found[name] or found
 
-  @When t.x("([^@]+) (#{t.arg})"), (action, arg, done) ->
+  @When t.x("(#{t.text})(.+)"), (action, args, done)  ->
+
     { store, actions } = findStore @store
     once store, @on, -> done()
-    arg = argValue @, arg
-    actions[cammelCase(action)] arg
+
+    action = cammelCase action
+    args = t.args args
+    args = _.map args, (x) => argValue @, x
+
+    actions[action].apply @, args
 
   @Then t.x(t.should), (matcher)->
     { store } = findStore @store
@@ -44,3 +49,4 @@ module.exports = ->
     { store } = findStore @store
     value = table value
     eval should { matcher, expected: 'value' }
+

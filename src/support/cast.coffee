@@ -16,7 +16,7 @@ module.exports =
     (number(x) or bool(x) or -> x)()
 
   cammelCase: (spaced) ->
-    tokens = spaced.split ' '
+    tokens = spaced.trim().split ' '
     rest = tokens[1..].map (x) -> "#{x[0].toUpperCase()}#{x[1..]}"
     "#{tokens[0]}#{rest}"
 

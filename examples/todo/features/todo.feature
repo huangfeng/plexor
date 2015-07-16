@@ -44,6 +44,6 @@ Feature: TODO
 
     Given @id of:
       | text | something |
-#    When update text with @id to "something different"
-#    Then should contain:
-#      | text | something different |
+    When update text @id to "something different"
+    Then should contain:
+      | text | something different |
