@@ -55,3 +55,16 @@ Feature: TODO
       | [text]              | [complete] |
       | something different | yes        |
       | something else      | yes        |
+
+  Scenario: Let's cleanup something
+
+    Given @id of:
+      | text | something different |
+    When destroy @id
+    Then should not contain:
+      | text     | something different |
+
+  Scenario: Let's cleanup all done
+
+    When destroy completed
+    Then should be empty
