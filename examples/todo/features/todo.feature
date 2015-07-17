@@ -3,7 +3,6 @@ Feature: TODO
   Background:
 
     Given @store "Todo"
-    And @on "change"
 
   Scenario: There's nothing todo
 

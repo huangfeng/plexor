@@ -1,2 +1,4 @@
-module.exports = require 'plexor'
-#module.exports = require '../../../../src/plexor'
+#plexor =  require 'plexor'
+plexor = require '../../../../src/plexor'
+
+module.exports = plexor()

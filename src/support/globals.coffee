@@ -6,5 +6,8 @@ global.m = (x) ->
   p x.__proto__.constructor.name
   p _.sortBy (name for name of x), (x) -> x
 
+global.config =
+  src: 'src'
 
-global.relative = (file) -> "#{process.cwd()}/src/#{file}"
+global.relative = (file) -> "#{process.cwd()}/#{config.src}/#{file}"
+

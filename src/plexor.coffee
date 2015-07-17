@@ -1,3 +1,5 @@
+_ = require 'lodash'
+
 require './support/globals'
 { any } = require './support/matchers'
 table = require './support/tables'
@@ -5,7 +7,7 @@ table = require './support/tables'
 t = require './support/tokens'
 { findStore, once } = require './support/flux'
 
-module.exports = ->
+steps = ->
 
   should = ({actual, matcher, expected}) ->
     actual ?= 'store.getAll()'
@@ -43,7 +45,7 @@ module.exports = ->
   @When t.x("(#{t.text})(.+)"), (action, args, done)  ->
     [action, args] = onAction @, action, args
     { store, actions } = findStore @store
-    once store, @on, -> done()
+    once store, 'change', -> done()
     actions[action].apply @, args
 
   @Then t.x(t.should), (matcher)->
@@ -55,3 +57,6 @@ module.exports = ->
     value = table value
     eval should { matcher, expected: 'value' }
 
+module.exports = (config={}) ->
+  _.merge global.config, config
+  steps
