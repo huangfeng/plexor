@@ -1,15 +1,15 @@
 Feature: Chat
 
-  Background:
-
-    Given @store "Message"
-
   Scenario: Chatty people
 
+    Given @store "Message"
     Then should not be empty
 
-  Scenario: Say what?
-#
-#    When create message "what?" in "t_1"
-#    Then should contain:
-#    |||
+  Scenario: Who's talking
+
+    Given @store "Thread"
+    Then should contain:
+      | [id] | [name]         |
+      | t_1  | Jing and Bill  |
+      | t_2  | Dave and Bill  |
+      | t_3  | Bill and Brian |
