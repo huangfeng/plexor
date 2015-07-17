@@ -1,11 +1,12 @@
 require './globals'
 
+resolve = (file) -> try require relative file catch
+
 module.exports =
 
   findStore: (name) ->
-    store: require relative "stores/#{name}Store"
-    actions: require relative "actions/#{name}Actions"
-
+    store: resolve "stores/#{name}Store"
+    actions: resolve "actions/#{name}Actions"
 
   once: (store, event, done) ->
     cb = ->

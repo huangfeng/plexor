@@ -6,6 +6,7 @@
   "dependencies": {
     "flux": "^2.0.3",
     "keymirror": "^0.1.1",
+    "node-localstorage": "^0.5.1",
     "object-assign": "^3.0.0"
   },
   "devDependencies": {
