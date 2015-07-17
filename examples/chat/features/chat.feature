@@ -2,14 +2,16 @@ Feature: Chat
 
   Scenario: Chatty people
 
-    Given @store "Message"
-    Then should not be empty
+    Then "Message" should not be empty
 
   Scenario: Who's talking
 
-    Given @store "Thread"
-    Then should contain:
+    Then "Thread" should contain:
       | [id] | [name]         |
       | t_1  | Jing and Bill  |
       | t_2  | Dave and Bill  |
       | t_3  | Bill and Brian |
+
+  Scenario: Any news?
+
+    Then "UnreadThread" count should be above "0"

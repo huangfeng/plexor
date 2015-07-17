@@ -8,6 +8,7 @@ global.m = (x) ->
 
 global.config =
   src: 'src'
+  all: 'all'
 
 global.relative = (file) -> "#{process.cwd()}/#{config.src}/#{file}"
 
